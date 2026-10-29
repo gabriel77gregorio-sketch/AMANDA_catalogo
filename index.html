@@ -2,135 +2,87 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-  <title>Catálogo Harpia Nutrição Animal | Consulta Comercial</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HARPIA Nutrição Animal | Catálogo de Formulações</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Cabeçalho Compacto Mobile-First -->
-  <header class="app-header">
-    <div class="header-inner">
-      <div class="brand-box">
-        <img src="logo-harpia.jpg" alt="Harpia Nutrição Animal" class="brand-logo harpia-logo-img" />
-        <div class="brand-text">
-          <h1>Catálogo de Produtos</h1>
-          <span>Consulta Rápida • Equipe Comercial</span>
+  <!-- Barra Superior Verde Escura -->
+  <header class="top-navbar">
+    <div class="top-navbar-inner">
+      <div class="brand-group">
+        <img src="logo-harpia.jpg" alt="Logo Harpia Nutrição Animal" class="brand-logo-thumb harpia-logo-img" />
+        <div class="brand-titles-wrap">
+          <div class="brand-main-line">
+            <span class="brand-harpia">HARPIA</span>
+            <span class="brand-nutricao">NUTRIÇÃO ANIMAL</span>
+          </div>
+          <span class="brand-sub">Apresentação Técnica das Novas Formulações</span>
         </div>
       </div>
 
-      <button class="btn-print-top" onclick="printFullInformativePDF()">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-          <polyline points="6 9 6 2 18 2 18 9" />
-          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
-          <rect x="6" y="14" width="12" height="8" />
-        </svg>
-        PDF com Logo
+      <button class="btn-download-pdf" onclick="downloadCatalogPDF()">
+        Baixar Catálogo em PDF
       </button>
     </div>
   </header>
 
-  <!-- Conteúdo Principal -->
-  <main class="container">
-    <!-- Abas: Lista Interativa vs Tabela Comparativa -->
-    <div class="nav-tabs" role="tablist">
-      <button id="tabListBtn" class="nav-tab active" onclick="switchTab('list')">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-          <line x1="8" y1="6" x2="21" y2="6" />
-          <line x1="8" y1="12" x2="21" y2="12" />
-          <line x1="8" y1="18" x2="21" y2="18" />
-          <line x1="3" y1="6" x2="3.01" y2="6" />
-          <line x1="3" y1="12" x2="3.01" y2="12" />
-          <line x1="3" y1="18" x2="3.01" y2="18" />
-        </svg>
-        Lista de Produtos
-      </button>
-      <button id="tabCompareBtn" class="nav-tab" onclick="switchTab('compare')">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-          <rect x="3" y="3" width="18" height="18" rx="2" />
-          <line x1="3" y1="9" x2="21" y2="9" />
-          <line x1="9" y1="21" x2="9" y2="9" />
-        </svg>
-        Tabela Comparativa
-      </button>
+  <!-- Sub-Header Branco com Título, Busca, Abas e Ações Rápidas -->
+  <section class="sub-header">
+    <div class="sub-header-inner">
+      <div class="sub-header-row-1">
+        <div class="catalog-heading">
+          <h1>Catálogo de Formulações</h1>
+          <p>Consulte os produtos em lista interativa ou em formato de tabela com visualização dos benefícios ao clicar.</p>
+        </div>
+
+        <div class="search-box-wrap">
+          <input
+            type="search"
+            id="searchInput"
+            class="search-input"
+            placeholder="Buscar por produto, categoria, aditivo..."
+          />
+        </div>
+      </div>
+
+      <div class="sub-header-row-2">
+        <div class="segmented-tabs" role="tablist">
+          <button id="btnTabList" class="seg-tab active" onclick="setView('list')">
+            Lista Interativa
+          </button>
+          <button id="btnTabTable" class="seg-tab" onclick="setView('table')">
+            Tabela com Benefícios
+          </button>
+        </div>
+
+        <div class="quick-actions">
+          <span class="quick-actions-label">Ações rápidas:</span>
+          <button class="btn-quick" onclick="expandAll()">Expandir Todos</button>
+          <button class="btn-quick" onclick="collapseAll()">Recolher Todos</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Área Principal -->
+  <main class="main-content">
+    <div class="status-bar">
+      <div id="showingCountText" class="showing-text">Mostrando <strong>13</strong> formulações</div>
+      <span class="pill-linha-completa">Linha Harpia Completa</span>
     </div>
 
-    <!-- Busca Rápida -->
-    <div class="search-bar">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <circle cx="11" cy="11" r="8" />
-        <line x1="21" y1="21" x2="16.65" y2="16.65" />
-      </svg>
-      <input
-        type="search"
-        id="searchInput"
-        class="search-input"
-        placeholder="Buscar produto ou benefício (ex: P 40, Seca, Leite, RIP)..."
-      />
-      <button id="clearSearchBtn" class="clear-search-btn" onclick="clearSearch()" aria-label="Limpar busca">&times;</button>
-    </div>
+    <!-- Visualização 1: Lista Interativa -->
+    <div id="listViewContainer" class="interactive-list"></div>
 
-    <!-- Chips de Categoria (Deslizável no Celular) -->
-    <div class="filter-chips-scroll" aria-label="Filtrar por Categoria">
-      <button class="chip active" data-cat="all" onclick="setCategory('all')">Todos (13)</button>
-      <button class="chip" data-cat="Bovinos de corte" onclick="setCategory('Bovinos de corte')">Bovinos de Corte</button>
-      <button class="chip" data-cat="Bovinos" onclick="setCategory('Bovinos')">Multi Pasto (Bovinos)</button>
-      <button class="chip" data-cat="Bezerros de corte" onclick="setCategory('Bezerros de corte')">Bezerros (Creep)</button>
-      <button class="chip" data-cat="Bovinos de Leite" onclick="setCategory('Bovinos de Leite')">Leite</button>
-      <button class="chip" data-cat="Equídeos adultos" onclick="setCategory('Equídeos adultos')">Equídeos</button>
-      <button class="chip" data-cat="Ovinos e Caprinos" onclick="setCategory('Ovinos e Caprinos')">Ovinos e Caprinos</button>
-    </div>
-
-    <!-- Seletores Rápidos: Época e Fase -->
-    <div class="sub-filters">
-      <select id="seasonFilter" class="sub-select" onchange="onSubFilterChange()">
-        <option value="all">Época: Todas</option>
-        <option value="Ano todo">Época: Ano todo</option>
-        <option value="Águas">Época: Águas</option>
-        <option value="Seca">Época: Seca</option>
-      </select>
-
-      <select id="phaseFilter" class="sub-select" onchange="onSubFilterChange()">
-        <option value="all">Fase: Todas</option>
-        <option value="cria">Indicado p/ Cria</option>
-        <option value="recria">Indicado p/ Recria</option>
-        <option value="engorda">Indicado p/ Engorda</option>
-        <option value="reproducao">Indicado p/ Reprodução</option>
-        <option value="producao">Indicado p/ Produção</option>
-        <option value="trabalho">Indicado p/ Trabalho/Manut.</option>
-      </select>
-    </div>
-
-    <!-- Barra de Contagem + Abrir/Fechar Todos -->
-    <div class="list-status">
-      <span id="statusCount">13 produtos encontrados (toque para abrir)</span>
-      <button id="toggleAllBtn" class="btn-link" onclick="toggleExpandAll()">Abrir todos</button>
-    </div>
-
-    <!-- ABA 1: Lista Acordeão de Produtos -->
-    <section id="listSection" class="product-list" aria-live="polite"></section>
-
-    <!-- ABA 2: Tabela Comparativa Geral -->
-    <section id="compareSection" style="display: none;" aria-live="polite"></section>
+    <!-- Visualização 2: Tabela com Benefícios -->
+    <div id="tableViewContainer" style="display: none;"></div>
   </main>
 
-  <!-- Barra Fixa Inferior (Mobile-First) para Impressão/PDF -->
-  <div class="bottom-bar">
-    <div class="bottom-bar-inner">
-      <button class="btn-bottom-full" onclick="printFullInformativePDF()">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-          <polyline points="6 9 6 2 18 2 18 9" />
-          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
-          <rect x="6" y="14" width="12" height="8" />
-        </svg>
-        Imprimir / Salvar PDF Informativo Completo (com Logo)
-      </button>
-    </div>
-  </div>
-
-  <!-- Área dedicada para geração do PDF Informativo com Logo -->
+  <!-- Área de Impressão / PDF Informativo com Logo -->
   <div id="printArea" aria-hidden="true"></div>
 
   <script src="logo.js"></script>

@@ -1,16 +1,12 @@
-// Base completa dos 13 produtos Harpia Nutrição Animal (extraídos do PDF oficial)
-const HARPIA_PRODUCTS = [
+const FORMULACOES = [
   {
     id: "harphos-p-40",
     name: "HARPHOS P 40",
     groupIndex: "0,1",
-    lineGroup: "Proteinados 0,1%",
-    lineClass: "line-01",
-    shortDosage: "100 a 200 g / 100 kg PV",
-    consumptionText: "100 a 200 g para cada 100 kg de peso corporal do animal por dia, se disponibilizado a livre acesso",
     aditivado: true,
     category: "Bovinos de corte",
     season: "Ano todo",
+    consumption: "100 a 200 g para cada 100 kg de peso corporal do animal por dia, se disponibilizado a livre acesso",
     phases: { cria: 1, recria: 3, engorda: 2, reproducao: 3, producao: 0, trabalho: 0 },
     benefits: [
       "Contém aditivo probiótico funcional: Levedura viva e bactérias ruminais e intestinais;",
@@ -24,13 +20,10 @@ const HARPIA_PRODUCTS = [
     id: "harphos-p-seca",
     name: "HARPHOS P SECA",
     groupIndex: "0,1",
-    lineGroup: "Proteinados 0,1%",
-    lineClass: "line-01",
-    shortDosage: "100 a 150 g / 100 kg PV",
-    consumptionText: "100 a 150 g para cada 100 kg de peso corporal do animal por dia, se disponibilizado a livre acesso",
     aditivado: true,
     category: "Bovinos de corte",
     season: "Seca",
+    consumption: "100 a 150 g para cada 100 kg de peso corporal do animal por dia, se disponibilizado a livre acesso",
     phases: { cria: 1, recria: 3, engorda: 2, reproducao: 3, producao: 0, trabalho: 0 },
     benefits: [
       "Contém aditivo nutricional: Ureia protegida com controle na degradação de amônia no rúmen e menor risco de intoxicação;",
@@ -44,13 +37,10 @@ const HARPIA_PRODUCTS = [
     id: "harphos-reproducao",
     name: "HARPHOS REPRODUÇÃO",
     groupIndex: "0,1",
-    lineGroup: "Proteinados 0,1%",
-    lineClass: "line-01",
-    shortDosage: "100 g / 100 kg PV",
-    consumptionText: "100 g para cada 100 kg de peso corporal do animal por dia, se disponibilizado a livre acesso",
     aditivado: true,
     category: "Bovinos de corte",
     season: "Ano todo",
+    consumption: "100 g para cada 100 kg de peso corporal do animal por dia, se disponibilizado a livre acesso",
     phases: { cria: 0, recria: 0, engorda: 0, reproducao: 3, producao: 0, trabalho: 0 },
     benefits: [
       "Contém mineral orgânico de alta biodisponibilidade;",
@@ -66,13 +56,10 @@ const HARPIA_PRODUCTS = [
     id: "harphos-creep",
     name: "HARPHOS CREEP",
     groupIndex: "0,1",
-    lineGroup: "Proteinados 0,1%",
-    lineClass: "line-01",
-    shortDosage: "300 g / 100 kg PV",
-    consumptionText: "300 g para cada 100 kg de peso corporal do animal por dia, se disponibilizado a livre acesso",
     aditivado: true,
     category: "Bezerros de corte",
     season: "Ano todo",
+    consumption: "300 g para cada 100 kg de peso corporal do animal por dia, se disponibilizado a livre acesso",
     phases: { cria: 3, recria: 0, engorda: 0, reproducao: 0, producao: 0, trabalho: 0 },
     benefits: [
       "Contém aditivo probiótico funcional: Levedura viva e bactérias ruminais e intestinais;",
@@ -87,13 +74,10 @@ const HARPIA_PRODUCTS = [
     id: "harphos-pe-30",
     name: "HARPHOS PE 30",
     groupIndex: "0,3",
-    lineGroup: "Proteico-Energéticos 0,3%",
-    lineClass: "line-03",
-    shortDosage: "300 g / 100 kg PV",
-    consumptionText: "300 g para cada 100 kg de peso corporal do animal por dia, se disponibilizado a livre acesso",
     aditivado: true,
     category: "Bovinos de corte",
     season: "Ano todo",
+    consumption: "300 g para cada 100 kg de peso corporal do animal por dia, se disponibilizado a livre acesso",
     phases: { cria: 3, recria: 3, engorda: 3, reproducao: 3, producao: 0, trabalho: 0 },
     benefits: [
       "Contém aditivo probiótico funcional: Levedura viva e bactérias ruminais e intestinais;",
@@ -107,15 +91,12 @@ const HARPIA_PRODUCTS = [
   },
   {
     id: "harphos-pe-aguas",
-    name: "HARPHOS PE ÁGUAS",
+    name: "HARPHOS PE AGUAS",
     groupIndex: "0,3",
-    lineGroup: "Proteico-Energéticos 0,3%",
-    lineClass: "line-03",
-    shortDosage: "300 g / 100 kg PV",
-    consumptionText: "300 g para cada 100 kg de peso corporal do animal por dia, se disponibilizado a livre acesso",
     aditivado: false,
     category: "Bovinos de corte",
     season: "Águas",
+    consumption: "300 g para cada 100 kg de peso corporal do animal por dia, se disponibilizado a livre acesso",
     phases: { cria: 3, recria: 3, engorda: 3, reproducao: 3, producao: 0, trabalho: 0 },
     benefits: [
       "Potencializa o ganho de peso e carcaça nas águas;",
@@ -129,13 +110,10 @@ const HARPIA_PRODUCTS = [
     id: "harphos-pe-seca",
     name: "HARPHOS PE SECA",
     groupIndex: "0,3",
-    lineGroup: "Proteico-Energéticos 0,3%",
-    lineClass: "line-03",
-    shortDosage: "300 g / 100 kg PV",
-    consumptionText: "300 g para cada 100 kg de peso corporal do animal por dia, se disponibilizado a livre acesso",
     aditivado: false,
     category: "Bovinos de corte",
     season: "Seca",
+    consumption: "300 g para cada 100 kg de peso corporal do animal por dia, se disponibilizado a livre acesso",
     phases: { cria: 3, recria: 3, engorda: 3, reproducao: 3, producao: 0, trabalho: 0 },
     benefits: [
       "Suporte de proteína e energia para pastagens de baixa qualidade;",
@@ -148,13 +126,10 @@ const HARPIA_PRODUCTS = [
     id: "harphos-lac",
     name: "HARPHOS LAC",
     groupIndex: "0,3",
-    lineGroup: "Especialidades 0,3%",
-    lineClass: "line-03",
-    shortDosage: "300 g / 100 kg PV",
-    consumptionText: "300 g para cada 100 kg de peso corporal do animal por dia, se disponibilizado a livre acesso",
     aditivado: true,
     category: "Bovinos de Leite",
     season: "Ano todo",
+    consumption: "300 g para cada 100 kg de peso corporal do animal por dia, se disponibilizado a livre acesso",
     phases: { cria: 0, recria: 2, engorda: 0, reproducao: 3, producao: 3, trabalho: 0 },
     benefits: [
       "Suporte energético no verão e proteico no inverno, conforme as deficiências das pastagens;",
@@ -169,13 +144,10 @@ const HARPIA_PRODUCTS = [
     id: "h-horse-multi-campo",
     name: "H HORSE MULTI CAMPO",
     groupIndex: "0,3",
-    lineGroup: "Especialidades 0,3%",
-    lineClass: "line-03",
-    shortDosage: "300 g / 100 kg PV",
-    consumptionText: "300 g para cada 100 kg de peso corporal do animal por dia, se disponibilizado a livre acesso",
     aditivado: true,
     category: "Equídeos adultos",
     season: "Ano todo",
+    consumption: "300 g para cada 100 kg de peso corporal do animal por dia, se disponibilizado a livre acesso",
     phases: { cria: 0, recria: 0, engorda: 0, reproducao: 0, producao: 0, trabalho: 3 },
     benefits: [
       "Contém aditivo probiótico que contribui para o equilíbrio da microbiota intestinal benéfica de Equinos, Muares e Asininos;",
@@ -190,13 +162,10 @@ const HARPIA_PRODUCTS = [
     id: "harphos-pe-sheep",
     name: "HARPHOS PE SHEEP",
     groupIndex: "0,3",
-    lineGroup: "Especialidades 0,3%",
-    lineClass: "line-03",
-    shortDosage: "10 g / 1 kg PV",
-    consumptionText: "10g para cada 1 kg de peso corporal do animal por dia, se disponibilizado a livre acesso",
     aditivado: true,
     category: "Ovinos e Caprinos",
     season: "Ano todo",
+    consumption: "10g para cada 1 kg de peso corporal do animal por dia, se disponibilizado a livre acesso",
     phases: { cria: 3, recria: 3, engorda: 3, reproducao: 3, producao: 3, trabalho: 0 },
     benefits: [
       "Produto sem cobre adicionado, reduzindo o risco de intoxicação;",
@@ -209,13 +178,10 @@ const HARPIA_PRODUCTS = [
     id: "multi-pasto",
     name: "MULTI PASTO",
     groupIndex: "0,5",
-    lineGroup: "Multi Pasto 0,5%",
-    lineClass: "line-05",
-    shortDosage: "300 a 700 g / 100 kg PV",
-    consumptionText: "300 a 700 g para cada 100 kg de peso corporal do animal por dia, se disponibilizado a livre acesso",
     aditivado: true,
     category: "Bovinos",
     season: "Ano todo",
+    consumption: "300 a 700 g para cada 100 kg de peso corporal do animal por dia, se disponibilizado a livre acesso",
     phases: { cria: 1, recria: 3, engorda: 2, reproducao: 3, producao: 0, trabalho: 0 },
     benefits: [
       "Suporte proteico e energético para pastagens de boa qualidade;",
@@ -230,15 +196,12 @@ const HARPIA_PRODUCTS = [
   },
   {
     id: "multi-pasto-aguas",
-    name: "MULTI PASTO ÁGUAS",
+    name: "MULTI PASTO AGUAS",
     groupIndex: "0,5",
-    lineGroup: "Multi Pasto 0,5%",
-    lineClass: "line-05",
-    shortDosage: "300 a 700 g / 100 kg PV",
-    consumptionText: "300 a 700 g para 100 kg de peso corporal do animal por dia, se disponibilizado a livre acesso",
     aditivado: true,
     category: "Bovinos",
     season: "Águas",
+    consumption: "300 a 700 g para 100 kg de peso corporal do animal por dia, se disponibilizado a livre acesso",
     phases: { cria: 1, recria: 3, engorda: 2, reproducao: 3, producao: 0, trabalho: 0 },
     benefits: [
       "Suporte energético para pastagens no período das águas;",
@@ -255,13 +218,10 @@ const HARPIA_PRODUCTS = [
     id: "multi-pasto-seca",
     name: "MULTI PASTO SECA",
     groupIndex: "0,5",
-    lineGroup: "Multi Pasto 0,5%",
-    lineClass: "line-05",
-    shortDosage: "300 a 700 g / 100 kg PV",
-    consumptionText: "300 a 700 g para cada 100 kg de peso corporal do animal por dia, se disponibilizado a livre acesso",
     aditivado: true,
     category: "Bovinos",
     season: "Seca",
+    consumption: "300 a 700 g para cada 100 kg de peso corporal do animal por dia, se disponibilizado a livre acesso",
     phases: { cria: 1, recria: 3, engorda: 2, reproducao: 3, producao: 0, trabalho: 0 },
     benefits: [
       "Suporte proteico para pastagens no período das secas;",
@@ -274,178 +234,85 @@ const HARPIA_PRODUCTS = [
   }
 ];
 
-const PHASE_LABELS = {
+const PHASE_NAMES = {
   cria: "Cria",
   recria: "Recria",
   engorda: "Engorda",
   reproducao: "Reprodução",
   producao: "Produção",
-  trabalho: "Trabalho"
+  trabalho: "Trabalho/Manut."
 };
 
 const state = {
-  tab: "list", // 'list' | 'compare'
+  view: "list", // 'list' | 'table'
   search: "",
-  category: "all",
-  season: "all",
-  phase: "all",
-  expandedIds: new Set(["harphos-p-40"]) // Primeiro item aberto como exemplo inicial
+  expandedIds: new Set(["harphos-p-40"])
 };
 
 function getLogoSrc() {
   return window.HARPIA_LOGO_SRC || "logo-harpia.jpg";
 }
 
-function getSeasonPillClass(season) {
-  if (season === "Águas") return "pill-aguas";
-  if (season === "Seca") return "pill-seca";
-  return "pill-ano";
+function getSeasonBadgeClass(season) {
+  if (season === "Seca") return "tag-seca";
+  if (season === "Águas") return "tag-aguas";
+  return "tag-ano-todo";
 }
 
-function starsText(n) {
-  return n > 0 ? "★".repeat(n) : "—";
-}
-
-function getFilteredProducts() {
-  return HARPIA_PRODUCTS.filter((p) => {
-    if (state.search.trim() !== "") {
-      const q = state.search.toLowerCase();
-      const match =
-        p.name.toLowerCase().includes(q) ||
-        p.category.toLowerCase().includes(q) ||
-        p.season.toLowerCase().includes(q) ||
-        p.consumptionText.toLowerCase().includes(q) ||
-        p.benefits.some((b) => b.toLowerCase().includes(q));
-      if (!match) return false;
-    }
-    if (state.category !== "all" && p.category !== state.category) return false;
-    if (state.season !== "all" && p.season !== state.season) return false;
-    if (state.phase !== "all" && (!p.phases[state.phase] || p.phases[state.phase] <= 0)) return false;
-    return true;
+function getFilteredFormulacoes() {
+  if (!state.search.trim()) return FORMULACOES;
+  const q = state.search.toLowerCase();
+  return FORMULACOES.filter((item) => {
+    const inName = item.name.toLowerCase().includes(q);
+    const inCat = item.category.toLowerCase().includes(q);
+    const inSeason = item.season.toLowerCase().includes(q);
+    const inAdit = item.aditivado && "aditivado".includes(q);
+    const inCons = item.consumption.toLowerCase().includes(q);
+    const inBen = item.benefits.some((b) => b.toLowerCase().includes(q));
+    return inName || inCat || inSeason || inAdit || inCons || inBen;
   });
 }
 
-// Renderiza a mini tabela comparativa dentro do produto clicado
-function renderInlineComparison(currentProd) {
-  // Compara produtos da mesma linha (0,1 / 0,3 / 0,5) ou mesma categoria
-  const peers = HARPIA_PRODUCTS.filter(
-    (p) => p.lineGroup === currentProd.lineGroup || p.category === currentProd.category
-  );
-
-  const rows = peers
-    .map((p) => {
-      const isCurrent = p.id === currentProd.id;
+function renderPhasesSummary(phases, groupIndex) {
+  const badges = Object.entries(PHASE_NAMES)
+    .map(([key, label]) => {
+      const count = phases[key] || 0;
       return `
-        <tr class="${isCurrent ? "current-row" : ""}">
-          <td>${p.name} ${isCurrent ? " (Atual)" : ""}</td>
-          <td>${p.season}</td>
-          <td>${p.shortDosage}</td>
-          <td style="color:#d97706;">${starsText(p.phases.cria)}</td>
-          <td style="color:#d97706;">${starsText(p.phases.recria)}</td>
-          <td style="color:#d97706;">${starsText(p.phases.engorda)}</td>
-          <td style="color:#d97706;">${starsText(p.phases.reproducao)}</td>
-          <td style="color:#d97706;">${starsText(p.phases.producao)}</td>
-          <td style="color:#d97706;">${starsText(p.phases.trabalho)}</td>
-        </tr>
+        <span class="phase-mini-tag ${count > 0 ? "has-stars" : ""}">
+          ${label}: ${count > 0 ? "★".repeat(count) : "-"}
+        </span>
       `;
     })
     .join("");
 
   return `
-    <div class="inline-compare-box">
-      <div class="inline-compare-header">
-        <span>Comparativo Rápido — ${currentProd.lineGroup}</span>
-        <button class="btn-link" onclick="switchTab('compare')">Ver tabela completa &rarr;</button>
+    <div class="phases-inline-wrap">
+      <div class="phases-badges-list">
+        ${badges}
       </div>
-      <div class="compare-table-wrap">
-        <table class="mini-compare-table">
-          <thead>
-            <tr>
-              <th>Produto</th>
-              <th>Época</th>
-              <th>Consumo</th>
-              <th>Cria</th>
-              <th>Recria</th>
-              <th>Engorda</th>
-              <th>Reprod.</th>
-              <th>Prod.</th>
-              <th>Trab.</th>
-            </tr>
-          </thead>
-          <tbody>
-            ${rows}
-          </tbody>
-        </table>
-      </div>
+      <span class="phase-mini-tag">Faixa de Consumo: <strong>${groupIndex}</strong></span>
     </div>
   `;
 }
 
-function renderApp() {
-  const filtered = getFilteredProducts();
-  const statusCount = document.getElementById("statusCount");
-  const toggleAllBtn = document.getElementById("toggleAllBtn");
-
-  if (statusCount) {
-    statusCount.textContent =
-      state.tab === "list"
-        ? `${filtered.length} produto(s) • Toque no produto para abrir detalhes`
-        : `Comparando ${filtered.length} produto(s) lado a lado`;
-  }
-
-  if (toggleAllBtn) {
-    toggleAllBtn.style.display = state.tab === "list" ? "inline-block" : "none";
-    const allOpen = filtered.length > 0 && filtered.every((p) => state.expandedIds.has(p.id));
-    toggleAllBtn.textContent = allOpen ? "Recolher todos" : "Abrir todos";
-  }
-
-  const listSec = document.getElementById("listSection");
-  const compSec = document.getElementById("compareSection");
-
-  if (state.tab === "list") {
-    listSec.style.display = "flex";
-    compSec.style.display = "none";
-    renderList(filtered, listSec);
-  } else {
-    listSec.style.display = "none";
-    compSec.style.display = "block";
-    renderFullComparison(filtered, compSec);
-  }
-}
-
-function renderList(products, container) {
-  if (products.length === 0) {
+function renderListView(items, container) {
+  if (items.length === 0) {
     container.innerHTML = `
-      <div style="background:#fff; padding:2rem 1rem; border-radius:12px; text-align:center; border:1px solid #e5e7eb;">
-        <p style="font-weight:700; color:#024b1f; margin-bottom:0.4rem;">Nenhum produto encontrado</p>
-        <p style="font-size:0.82rem; color:#6b7280; margin-bottom:0.85rem;">Tente ajustar os filtros ou limpar a busca.</p>
-        <button class="chip active" onclick="resetAllFilters()">Mostrar Todos os Produtos</button>
+      <div class="list-card" style="padding: 2rem; text-align: center; color: #64748b;">
+        Nenhuma formulação encontrada para "<strong>${state.search}</strong>".
       </div>
     `;
     return;
   }
 
-  container.innerHTML = products
-    .map((p) => {
-      const isOpen = state.expandedIds.has(p.id);
-
-      const phasesHtml = Object.entries(PHASE_LABELS)
-        .map(([key, label]) => {
-          const st = p.phases[key] || 0;
-          return `
-            <div class="phase-box ${st > 0 ? "recommended" : ""}">
-              <span class="phase-box-name">${label}</span>
-              <span class="phase-box-stars">${starsText(st)}</span>
-            </div>
-          `;
-        })
-        .join("");
-
-      const benefitsHtml = p.benefits
+  container.innerHTML = items
+    .map((item) => {
+      const isOpen = state.expandedIds.has(item.id);
+      const benefitsHtml = item.benefits
         .map(
           (b, idx) => `
-          <li>
-            <span class="b-index">${idx + 1}</span>
+          <li class="benefit-bar-item">
+            <span class="benefit-bar-num">${idx + 1}.</span>
             <span>${b}</span>
           </li>
         `
@@ -453,73 +320,29 @@ function renderList(products, container) {
         .join("");
 
       return `
-        <div class="product-item ${isOpen ? "open" : ""}" id="item-${p.id}">
-          <button class="product-row-btn" onclick="toggleProduct('${p.id}')" aria-expanded="${isOpen}">
-            <div class="row-left">
-              <div class="line-badge ${p.lineClass}">
-                <span>${p.groupIndex}</span>
-                <small>% PV</small>
-              </div>
-              <div class="row-info">
-                <div class="row-title">
-                  <span>${p.name}</span>
-                  ${p.aditivado ? `<span class="mini-pill pill-aditivado">Aditivado</span>` : ""}
-                </div>
-                <div class="row-subtitle">
-                  <span>${p.category}</span>
-                  <span>•</span>
-                  <span class="mini-pill ${getSeasonPillClass(p.season)}">${p.season}</span>
-                  <span>•</span>
-                  <span>${p.shortDosage}</span>
-                </div>
-              </div>
+        <div class="list-card ${isOpen ? "expanded" : ""}">
+          <button class="list-card-header" onclick="toggleItem('${item.id}')" aria-expanded="${isOpen}">
+            <div class="list-card-meta">
+              <span class="list-prod-name">${item.name}</span>
+              ${item.aditivado ? `<span class="tag-badge tag-aditivado">ADITIVADO</span>` : ""}
+              <span class="list-prod-category">${item.category}</span>
+              <span class="tag-badge ${getSeasonBadgeClass(item.season)}">${item.season}</span>
             </div>
-            <div class="row-chevron" aria-hidden="true">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </div>
+            <span class="list-toggle-action">${isOpen ? "[ Fechar ]" : "[ Abrir ]"}</span>
           </button>
 
-          <div class="product-details">
-            <div class="detail-grid">
-              <!-- Consumo Recomendado -->
-              <div class="info-highlight-box">
-                <div class="info-label">Consumo Estimado a Livre Acesso (Faixa ${p.groupIndex}% PV)</div>
-                <div class="info-value">${p.consumptionText}</div>
-              </div>
-
-              <!-- Estrelas por Fase -->
-              <div>
-                <div class="section-subtitle">Indicação por Fase Produtiva</div>
-                <div class="phases-strip">
-                  ${phasesHtml}
-                </div>
-              </div>
-
-              <!-- Benefícios Técnicos -->
-              <div>
-                <div class="section-subtitle">Benefícios e Argumentos Técnicos (${p.benefits.length})</div>
-                <ul class="detail-benefits-list">
-                  ${benefitsHtml}
-                </ul>
-              </div>
-
-              <!-- Tabela Comparativa da Mesma Linha -->
-              ${renderInlineComparison(p)}
-
-              <!-- Ações Rápidas do Produto -->
-              <div class="detail-actions">
-                <button class="btn-detail" onclick="printSingleInformativePDF('${p.id}')">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                    <polyline points="6 9 6 2 18 2 18 9" />
-                    <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
-                    <rect x="6" y="14" width="12" height="8" />
-                  </svg>
-                  Imprimir Informativo deste Produto
-                </button>
-              </div>
+          <div class="list-card-body">
+            <div class="consumption-panel">
+              <div class="panel-small-title">CONSUMO ESTIMADO A LIVRE ACESSO</div>
+              <div class="consumption-panel-value">${item.consumption}</div>
             </div>
+
+            <div class="benefits-section-title">BENEFÍCIOS E DIFERENCIAIS</div>
+            <ul class="benefit-bars-list">
+              ${benefitsHtml}
+            </ul>
+
+            ${renderPhasesSummary(item.phases, item.groupIndex)}
           </div>
         </div>
       `;
@@ -527,57 +350,91 @@ function renderList(products, container) {
     .join("");
 }
 
-function renderFullComparison(products, container) {
-  if (products.length === 0) {
-    container.innerHTML = `<div style="background:#fff; padding:2rem; border-radius:12px; text-align:center;">Nenhum produto para comparar com os filtros atuais.</div>`;
+function renderTableView(items, container) {
+  if (items.length === 0) {
+    container.innerHTML = `
+      <div class="table-card-wrapper" style="padding: 2rem; text-align: center; color: #64748b;">
+        Nenhuma formulação encontrada para "<strong>${state.search}</strong>".
+      </div>
+    `;
     return;
   }
 
-  const rows = products
-    .map(
-      (p) => `
-      <tr onclick="openProductFromTable('${p.id}')" style="cursor:pointer;" title="Toque para abrir todas as informações de ${p.name}">
-        <td>
-          <strong style="color:#024b1f; display:block;">${p.name}</strong>
-          <span style="font-size:0.68rem; color:#6b7280;">${p.category} ${p.aditivado ? "• Aditivado" : ""}</span>
-        </td>
-        <td><strong>${p.groupIndex}</strong></td>
-        <td><span class="mini-pill ${getSeasonPillClass(p.season)}">${p.season}</span></td>
-        <td style="font-size:0.73rem;">${p.shortDosage}</td>
-        <td style="color:#d97706; font-weight:700;">${starsText(p.phases.cria)}</td>
-        <td style="color:#d97706; font-weight:700;">${starsText(p.phases.recria)}</td>
-        <td style="color:#d97706; font-weight:700;">${starsText(p.phases.engorda)}</td>
-        <td style="color:#d97706; font-weight:700;">${starsText(p.phases.reproducao)}</td>
-        <td style="color:#d97706; font-weight:700;">${starsText(p.phases.producao)}</td>
-        <td style="color:#d97706; font-weight:700;">${starsText(p.phases.trabalho)}</td>
-      </tr>
-    `
-    )
+  const rowsHtml = items
+    .map((item) => {
+      const isOpen = state.expandedIds.has(item.id);
+      const benefitsHtml = item.benefits
+        .map(
+          (b, idx) => `
+          <li class="benefit-bar-item">
+            <span class="benefit-bar-num">${idx + 1}.</span>
+            <span>${b}</span>
+          </li>
+        `
+        )
+        .join("");
+
+      const detailRow = isOpen
+        ? `
+          <tr class="table-detail-row">
+            <td colspan="6" class="table-detail-cell">
+              <div class="benefits-section-title">BENEFÍCIOS E DIFERENCIAIS — ${item.name}</div>
+              <ul class="benefit-bars-list">
+                ${benefitsHtml}
+              </ul>
+              ${renderPhasesSummary(item.phases, item.groupIndex)}
+            </td>
+          </tr>
+        `
+        : "";
+
+      return `
+        <tr class="main-table-row">
+          <td>
+            <button class="table-prod-link" onclick="toggleItem('${item.id}')">${item.name}</button>
+          </td>
+          <td class="col-center">
+            ${
+              item.aditivado
+                ? `<span class="tag-badge tag-aditivado" style="text-transform:none;">Sim</span>`
+                : `<span class="text-nao">Não</span>`
+            }
+          </td>
+          <td>${item.category}</td>
+          <td class="col-center">
+            <span class="tag-badge ${getSeasonBadgeClass(item.season)}">${item.season}</span>
+          </td>
+          <td>${item.consumption}</td>
+          <td class="col-center">
+            <button class="btn-ver-beneficios ${isOpen ? "active" : ""}" onclick="toggleItem('${item.id}')">
+              ${isOpen ? "Fechar" : "Ver Benefícios"}
+            </button>
+          </td>
+        </tr>
+        ${detailRow}
+      `;
+    })
     .join("");
 
   container.innerHTML = `
-    <div class="full-compare-card">
-      <div style="padding:0.65rem 0.85rem; background:#eaf5ee; border-bottom:1px solid #c2e2cd; font-size:0.76rem; color:#024b1f; font-weight:700;">
-        💡 Dica: Deslize para o lado para ver todas as fases ou toque em um produto para abrir seus benefícios completos.
+    <div class="table-card-wrapper">
+      <div class="table-helper-banner">
+        Clique sobre o <strong>nome do produto</strong> ou em <strong>"Ver Benefícios"</strong> para expandir os detalhes técnicos.
       </div>
-      <div class="compare-table-wrap">
-        <table class="full-compare-table">
+      <div class="table-responsive-scroll">
+        <table class="benefits-table">
           <thead>
             <tr>
-              <th>Produto / Categoria</th>
-              <th>Faixa</th>
-              <th>Época</th>
-              <th>Consumo (100kg PV)</th>
-              <th>Cria</th>
-              <th>Recria</th>
-              <th>Engorda</th>
-              <th>Reprod.</th>
-              <th>Produção</th>
-              <th>Trabalho</th>
+              <th>PRODUTO</th>
+              <th class="col-center">ADITIVADO</th>
+              <th>CATEGORIA ANIMAL</th>
+              <th class="col-center">ÉPOCA DO ANO</th>
+              <th>CONSUMO ESTIMADO A LIVRE ACESSO</th>
+              <th class="col-center">AÇÃO</th>
             </tr>
           </thead>
           <tbody>
-            ${rows}
+            ${rowsHtml}
           </tbody>
         </table>
       </div>
@@ -585,178 +442,100 @@ function renderFullComparison(products, container) {
   `;
 }
 
-// =====================================================
-// INTERAÇÕES MOBILE-FIRST
-// =====================================================
-function toggleProduct(id) {
+function render() {
+  const filtered = getFilteredFormulacoes();
+  const showingEl = document.getElementById("showingCountText");
+  if (showingEl) {
+    showingEl.innerHTML = `Mostrando <strong>${filtered.length}</strong> formulações`;
+  }
+
+  const listContainer = document.getElementById("listViewContainer");
+  const tableContainer = document.getElementById("tableViewContainer");
+
+  if (state.view === "list") {
+    listContainer.style.display = "flex";
+    tableContainer.style.display = "none";
+    renderListView(filtered, listContainer);
+  } else {
+    listContainer.style.display = "none";
+    tableContainer.style.display = "block";
+    renderTableView(filtered, tableContainer);
+  }
+}
+
+function toggleItem(id) {
   if (state.expandedIds.has(id)) {
     state.expandedIds.delete(id);
   } else {
     state.expandedIds.add(id);
   }
-  renderApp();
+  render();
 }
 
-function toggleExpandAll() {
-  const filtered = getFilteredProducts();
-  const allOpen = filtered.every((p) => state.expandedIds.has(p.id));
-  if (allOpen) {
-    state.expandedIds.clear();
-  } else {
-    filtered.forEach((p) => state.expandedIds.add(p.id));
-  }
-  renderApp();
+function setView(viewName) {
+  state.view = viewName;
+  document.getElementById("btnTabList").classList.toggle("active", viewName === "list");
+  document.getElementById("btnTabTable").classList.toggle("active", viewName === "table");
+  render();
 }
 
-function switchTab(tabName) {
-  state.tab = tabName;
-  document.getElementById("tabListBtn").classList.toggle("active", tabName === "list");
-  document.getElementById("tabCompareBtn").classList.toggle("active", tabName === "compare");
-  renderApp();
+function expandAll() {
+  const filtered = getFilteredFormulacoes();
+  filtered.forEach((item) => state.expandedIds.add(item.id));
+  render();
 }
 
-function openProductFromTable(productId) {
-  state.expandedIds.add(productId);
-  switchTab("list");
-  setTimeout(() => {
-    const el = document.getElementById(`item-${productId}`);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
-  }, 80);
-}
-
-function setCategory(cat) {
-  state.category = cat;
-  document.querySelectorAll(".chip").forEach((btn) => {
-    btn.classList.toggle("active", btn.dataset.cat === cat);
-  });
-  renderApp();
-}
-
-function onSubFilterChange() {
-  state.season = document.getElementById("seasonFilter").value;
-  state.phase = document.getElementById("phaseFilter").value;
-  renderApp();
-}
-
-function clearSearch() {
-  state.search = "";
-  const input = document.getElementById("searchInput");
-  input.value = "";
-  document.getElementById("clearSearchBtn").style.display = "none";
-  renderApp();
-}
-
-function resetAllFilters() {
-  state.search = "";
-  state.category = "all";
-  state.season = "all";
-  state.phase = "all";
-  document.getElementById("searchInput").value = "";
-  document.getElementById("clearSearchBtn").style.display = "none";
-  document.getElementById("seasonFilter").value = "all";
-  document.getElementById("phaseFilter").value = "all";
-  setCategory("all");
+function collapseAll() {
+  state.expandedIds.clear();
+  render();
 }
 
 // =====================================================
-// GERAÇÃO DO PDF INFORMATIVO (COM TODAS AS INFORMAÇÕES + LOGO)
+// IMPRESSÃO / DOWNLOAD DO CATÁLOGO EM PDF COM LOGO
 // =====================================================
-let customPrintActive = false;
-
-function buildInformativePDF(products, titleSubtitle) {
+function buildPrintableCatalog() {
+  const filtered = getFilteredFormulacoes();
+  const itemsToPrint = filtered.length > 0 ? filtered : FORMULACOES;
   const logoSrc = getLogoSrc();
   const dateStr = new Date().toLocaleDateString("pt-BR");
 
-  // 1. Quadro comparativo sintético no início (se mais de 1 produto)
-  const summarySectionHtml =
-    products.length > 1
-      ? `
-      <div class="pdf-summary-section">
-        <div class="pdf-summary-title">Quadro Comparativo de Indicação por Fase e Consumo</div>
-        <table class="pdf-summary-grid">
-          <thead>
-            <tr>
-              <th>Produto</th>
-              <th>Categoria Animal</th>
-              <th>Época</th>
-              <th>Consumo (Livre Acesso)</th>
-              <th>Cria</th>
-              <th>Recria</th>
-              <th>Engorda</th>
-              <th>Reprod.</th>
-              <th>Produção</th>
-              <th>Trabalho</th>
-            </tr>
-          </thead>
-          <tbody>
-            ${products
-              .map(
-                (p) => `
-              <tr>
-                <td><strong>${p.name}</strong> ${p.aditivado ? "<span style='color:#035e27;'>(Aditivado)</span>" : ""}</td>
-                <td>${p.category}</td>
-                <td>${p.season}</td>
-                <td>${p.shortDosage}</td>
-                <td style="color:#b45309; font-weight:700;">${starsText(p.phases.cria)}</td>
-                <td style="color:#b45309; font-weight:700;">${starsText(p.phases.recria)}</td>
-                <td style="color:#b45309; font-weight:700;">${starsText(p.phases.engorda)}</td>
-                <td style="color:#b45309; font-weight:700;">${starsText(p.phases.reproducao)}</td>
-                <td style="color:#b45309; font-weight:700;">${starsText(p.phases.producao)}</td>
-                <td style="color:#b45309; font-weight:700;">${starsText(p.phases.trabalho)}</td>
-              </tr>
-            `
-              )
-              .join("")}
-          </tbody>
-        </table>
-      </div>
-    `
-      : "";
-
-  // 2. Fichas Informativas Detalhadas de Todos os Produtos (Estilo Informativo Técnico)
-  const productBlocksHtml = products
-    .map((p) => {
-      const phasesPills = Object.entries(PHASE_LABELS)
-        .map(([k, label]) => {
-          const st = p.phases[k] || 0;
-          return `
-            <span class="pdf-phase-pill ${st > 0 ? "active" : ""}">
-              ${label}: ${st > 0 ? "★".repeat(st) : "—"}
-            </span>
-          `;
-        })
+  const cardsHtml = itemsToPrint
+    .map((item) => {
+      const benefitsHtml = item.benefits
+        .map(
+          (b, idx) => `
+          <div class="pdf-benefit-row">
+            <strong style="color:#047857;">${idx + 1}.</strong> ${b}
+          </div>
+        `
+        )
         .join("");
 
-      const benefitsItems = p.benefits
-        .map((b, idx) => `<li><strong>${idx + 1}.</strong> ${b}</li>`)
-        .join("");
+      const activePhases = Object.entries(PHASE_NAMES)
+        .filter(([k]) => item.phases[k] > 0)
+        .map(([k, label]) => `${label}: ${"★".repeat(item.phases[k])}`)
+        .join("  •  ");
 
       return `
-        <div class="pdf-product-block">
-          <div class="pdf-prod-top">
-            <div class="pdf-prod-name">
-              <span>${p.name}</span>
-              <span class="pdf-tag pdf-tag-amber">Faixa ${p.groupIndex}% PV</span>
-              ${p.aditivado ? `<span class="pdf-tag pdf-tag-green">Produto Aditivado</span>` : ""}
+        <div class="pdf-card">
+          <div class="pdf-card-head">
+            <div class="pdf-card-head-left">
+              <strong style="font-size:11pt; color:#0f172a;">${item.name}</strong>
+              ${item.aditivado ? `<span class="tag-badge tag-aditivado">ADITIVADO</span>` : ""}
+              <span style="font-size:8.5pt; color:#475569;">${item.category}</span>
+              <span class="tag-badge ${getSeasonBadgeClass(item.season)}">${item.season}</span>
             </div>
-            <div class="pdf-prod-specs">
-              <span><strong>Categoria:</strong> ${p.category}</span>
-              <span><strong>Época:</strong> ${p.season}</span>
-            </div>
+            <span style="font-size:8pt; color:#64748b; font-weight:700;">Faixa ${item.groupIndex}</span>
           </div>
 
-          <div class="pdf-dosage-bar">
-            <div><strong>Recomendação de Consumo a Livre Acesso:</strong> ${p.consumptionText}</div>
+          <div class="pdf-consumo-box">
+            <div style="font-size:6.8pt; font-weight:800; color:#64748b; text-transform:uppercase;">CONSUMO ESTIMADO A LIVRE ACESSO</div>
+            <div style="font-size:8.8pt; font-weight:700; color:#0f172a; margin-top:2px;">${item.consumption}</div>
+            ${activePhases ? `<div style="font-size:7.5pt; color:#92400e; font-weight:700; margin-top:3px;">Indicação: ${activePhases}</div>` : ""}
           </div>
 
-          <div class="pdf-phases-row">
-            ${phasesPills}
-          </div>
-
-          <div class="pdf-benefits-title">Informações Técnicas e Benefícios do Produto:</div>
-          <ul class="pdf-benefits-grid">
-            ${benefitsItems}
-          </ul>
+          <div style="font-size:7pt; font-weight:800; color:#64748b; text-transform:uppercase; margin-bottom:4px;">BENEFÍCIOS E DIFERENCIAIS</div>
+          <div>${benefitsHtml}</div>
         </div>
       `;
     })
@@ -764,65 +543,30 @@ function buildInformativePDF(products, titleSubtitle) {
 
   const printArea = document.getElementById("printArea");
   printArea.innerHTML = `
-    <div class="pdf-header">
-      <div class="pdf-brand">
+    <div class="pdf-top-bar">
+      <div class="pdf-brand-left">
         <img src="${logoSrc}" alt="Logo Harpia Nutrição Animal" />
-        <div class="pdf-brand-title">
-          <h1>Harpia Nutrição Animal</h1>
-          <p>${titleSubtitle || "Informativo Técnico de Produtos • Guia Completo de Suplementação"}</p>
+        <div>
+          <div style="font-size:14pt; font-weight:900; letter-spacing:0.02em;">HARPIA <span style="font-size:8.5pt; color:#4ade80;">NUTRIÇÃO ANIMAL</span></div>
+          <div style="font-size:8pt; color:#cbd5e1;">Catálogo de Formulações • Apresentação Técnica (${itemsToPrint.length} produtos)</div>
         </div>
       </div>
-      <div class="pdf-meta">
-        <div><strong>Informativo Técnico Comercial</strong></div>
-        <div>Produtos incluídos: <strong>${products.length}</strong></div>
+      <div style="text-align:right; font-size:8pt; color:#cbd5e1;">
+        <div>Linha Harpia Completa</div>
         <div>Data: ${dateStr}</div>
       </div>
     </div>
-
-    ${summarySectionHtml}
-
-    <div class="pdf-section-heading">Especificações Técnicas e Benefícios por Produto</div>
-    ${productBlocksHtml}
-
-    <div class="pdf-footer">
-      <div style="display:flex; align-items:center; gap:8px;">
-        <img src="${logoSrc}" alt="Harpia Nutrição Animal" />
-        <span><strong>Harpia Nutrição Animal</strong> — Informações técnicas para orientação de suplementação a pasto</span>
-      </div>
-      <div>Emissão: ${dateStr}</div>
-    </div>
+    ${cardsHtml}
   `;
 }
 
-function printFullInformativePDF() {
-  customPrintActive = true;
-  // Sempre imprime todos os produtos (ou os filtrados se o usuário filtrou, mas garantindo todas as informações detalhadas)
-  const filtered = getFilteredProducts();
-  const listToPrint = filtered.length > 0 ? filtered : HARPIA_PRODUCTS;
-  const subtitle =
-    listToPrint.length === HARPIA_PRODUCTS.length
-      ? "Informativo Técnico Completo — Todas as Linhas de Produtos"
-      : `Informativo Técnico de Produtos (${listToPrint.length} itens selecionados)`;
-
-  buildInformativePDF(listToPrint, subtitle);
+function downloadCatalogPDF() {
+  buildPrintableCatalog();
   setTimeout(() => {
     window.print();
-    customPrintActive = false;
-  }, 120);
+  }, 100);
 }
 
-function printSingleInformativePDF(productId) {
-  const product = HARPIA_PRODUCTS.find((p) => p.id === productId);
-  if (!product) return;
-  customPrintActive = true;
-  buildInformativePDF([product], `Informativo Técnico do Produto — ${product.name}`);
-  setTimeout(() => {
-    window.print();
-    customPrintActive = false;
-  }, 120);
-}
-
-// Inicialização
 document.addEventListener("DOMContentLoaded", () => {
   const logoSrc = getLogoSrc();
   document.querySelectorAll(".harpia-logo-img").forEach((img) => {
@@ -830,23 +574,14 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const searchInput = document.getElementById("searchInput");
-  const clearBtn = document.getElementById("clearSearchBtn");
-
   searchInput.addEventListener("input", (e) => {
     state.search = e.target.value;
-    clearBtn.style.display = state.search ? "flex" : "none";
-    renderApp();
+    render();
   });
 
-  // Se o vendedor apertar Ctrl+P direto, gera o informativo completo automaticamente
   window.addEventListener("beforeprint", () => {
-    if (!customPrintActive) {
-      buildInformativePDF(
-        HARPIA_PRODUCTS,
-        "Informativo Técnico Completo — Todas as Linhas de Produtos"
-      );
-    }
+    buildPrintableCatalog();
   });
 
-  renderApp();
+  render();
 });
