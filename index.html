@@ -2,430 +2,135 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Harpia Nutrição Animal | Catálogo Oficial de Produtos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Catálogo Harpia Nutrição Animal | Consulta Comercial</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Barra Institucional Superior -->
-  <div class="top-bar">
-    <div class="top-bar-inner">
-      <div><strong>HARPIA NUTRIÇÃO ANIMAL</strong> — Catálogo Técnico Interativo de Suplementação</div>
-      <div class="top-bar-badges">
-        <span class="top-bar-badge">✓ Bovinos de Corte & Leite</span>
-        <span class="top-bar-badge">✓ Equídeos</span>
-        <span class="top-bar-badge">✓ Ovinos & Caprinos</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Cabeçalho Principal com Logo Oficial -->
-  <header class="main-header">
-    <div class="header-container">
-      <div class="brand-area">
-        <div class="brand-logo-wrap">
-          <img src="logo-harpia.jpg" alt="Logo Harpia Nutrição Animal" class="brand-logo harpia-logo-img" />
-        </div>
-        <div class="brand-titles">
+  <!-- Cabeçalho Compacto Mobile-First -->
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="brand-box">
+        <img src="logo-harpia.jpg" alt="Harpia Nutrição Animal" class="brand-logo harpia-logo-img" />
+        <div class="brand-text">
           <h1>Catálogo de Produtos</h1>
-          <p>Informações Técnicas, Indicação por Fase e Consumo Estimado</p>
+          <span>Consulta Rápida • Equipe Comercial</span>
         </div>
       </div>
 
-      <div class="header-actions">
-        <button class="btn btn-gold" onclick="openCalculatorModal()">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="4" y="2" width="16" height="20" rx="2" />
-            <line x1="8" y1="6" x2="16" y2="6" />
-            <line x1="8" y1="10" x2="8" y2="10" />
-            <line x1="12" y1="10" x2="12" y2="10" />
-            <line x1="16" y1="10" x2="16" y2="10" />
-            <line x1="8" y1="14" x2="8" y2="14" />
-            <line x1="12" y1="14" x2="12" y2="14" />
-            <line x1="16" y1="14" x2="16" y2="14" />
-            <line x1="8" y1="18" x2="16" y2="18" />
-          </svg>
-          Simulador de Consumo
-        </button>
-
-        <button class="btn btn-primary" onclick="openPrintModal()">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="6 9 6 2 18 2 18 9" />
-            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
-            <rect x="6" y="14" width="12" height="8" />
-          </svg>
-          Imprimir com Logo
-          <span id="selectedCountBadge" class="badge-count" title="Produtos marcados para impressão">0</span>
-        </button>
-      </div>
+      <button class="btn-print-top" onclick="printFullInformativePDF()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <polyline points="6 9 6 2 18 2 18 9" />
+          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+          <rect x="6" y="14" width="12" height="8" />
+        </svg>
+        PDF com Logo
+      </button>
     </div>
   </header>
 
   <!-- Conteúdo Principal -->
-  <main class="main-container">
-    <!-- Banner Resumo -->
-    <section class="hero-banner">
-      <div class="hero-text">
-        <span class="hero-tag">Linha Completa Harpia</span>
-        <h2>Nutrição de Precisão para Máximo Desempenho no Campo</h2>
-        <p>
-          Consulte especificações de consumo a livre acesso, presença de aditivos probióticos e nutricionais, época recomendada e benefícios técnicos para cada categoria animal.
-        </p>
-      </div>
-      <div class="hero-stats">
-        <div class="stat-card">
-          <span class="stat-value">13</span>
-          <span class="stat-label">Produtos no Catálogo</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-value">0,1 a 0,5</span>
-          <span class="stat-label">Faixas de Consumo (% PV)</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-value">6 Fases</span>
-          <span class="stat-label">Cria à Reprodução/Leite</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Painel de Busca e Filtros -->
-    <section class="controls-panel" aria-label="Filtros do Catálogo">
-      <div class="controls-top">
-        <div class="filter-group">
-          <label for="searchInput">Buscar Produto ou Benefício</label>
-          <div class="search-input-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="11" cy="11" r="8" />
-              <line x1="21" y1="21" x2="16.65" y2="16.65" />
-            </svg>
-            <input
-              type="text"
-              id="searchInput"
-              class="form-input"
-              placeholder="Ex.: HARPHOS, Multi Pasto, probiótico, ureia, RIP, leite..."
-            />
-          </div>
-        </div>
-
-        <div class="filter-group">
-          <label for="categorySelect">Categoria Animal</label>
-          <select id="categorySelect" class="form-select">
-            <option value="all">Todas as categorias</option>
-            <option value="Bovinos de corte">Bovinos de corte</option>
-            <option value="Bezerros de corte">Bezerros de corte</option>
-            <option value="Bovinos de Leite">Bovinos de Leite</option>
-            <option value="Bovinos">Bovinos (Corte e Leite)</option>
-            <option value="Equídeos adultos">Equídeos adultos</option>
-            <option value="Ovinos e Caprinos">Ovinos e Caprinos</option>
-          </select>
-        </div>
-
-        <div class="filter-group">
-          <label for="seasonSelect">Época do Ano</label>
-          <select id="seasonSelect" class="form-select">
-            <option value="all">Todas as épocas</option>
-            <option value="Ano todo">Ano todo</option>
-            <option value="Águas">Período das Águas</option>
-            <option value="Seca">Período da Seca</option>
-          </select>
-        </div>
-
-        <div class="filter-group">
-          <label for="groupSelect">Faixa de Consumo</label>
-          <select id="groupSelect" class="form-select">
-            <option value="all">Todas as faixas</option>
-            <option value="0,1">Faixa 0,1 (100 a 300g / 100kg PV)</option>
-            <option value="0,3">Faixa 0,3 (300g / 100kg PV e Específicos)</option>
-            <option value="0,5">Faixa 0,5 (300 a 700g / 100kg PV)</option>
-          </select>
-        </div>
-
-        <div>
-          <button class="btn btn-outline" onclick="resetFilters()" style="width: 100%;">
-            Limpar Filtros
-          </button>
-        </div>
-      </div>
-
-      <div class="controls-bottom">
-        <div class="phase-pills">
-          <span class="phase-label">Filtrar por Fase / Indicação:</span>
-          <button class="phase-pill active" data-phase="all" onclick="setPhaseFilter('all')">Todas</button>
-          <button class="phase-pill" data-phase="cria" onclick="setPhaseFilter('cria')">★ Cria</button>
-          <button class="phase-pill" data-phase="recria" onclick="setPhaseFilter('recria')">★ Recria</button>
-          <button class="phase-pill" data-phase="engorda" onclick="setPhaseFilter('engorda')">★ Engorda</button>
-          <button class="phase-pill" data-phase="reproducao" onclick="setPhaseFilter('reproducao')">★ Reprodução</button>
-          <button class="phase-pill" data-phase="producao" onclick="setPhaseFilter('producao')">★ Produção</button>
-          <button class="phase-pill" data-phase="trabalho" onclick="setPhaseFilter('trabalho')">★ Trabalho / Manutenção</button>
-        </div>
-
-        <div class="view-switcher" role="group" aria-label="Modo de visualização">
-          <button id="btnViewCards" class="view-btn active" onclick="setViewMode('cards')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="3" y="3" width="7" height="7" />
-              <rect x="14" y="3" width="7" height="7" />
-              <rect x="14" y="14" width="7" height="7" />
-              <rect x="3" y="14" width="7" height="7" />
-            </svg>
-            Cards Detalhados
-          </button>
-          <button id="btnViewTable" class="view-btn" onclick="setViewMode('table')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18" />
-            </svg>
-            Tabela Técnica (Formato PDF)
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Barra de Status e Ações Rápidas -->
-    <div class="results-bar">
-      <div id="resultsCount" class="results-info">Exibindo <strong>13</strong> de <strong>13</strong> produtos</div>
-      <div class="selection-actions">
-        <button class="btn btn-outline btn-sm" onclick="selectAllFiltered()">Selecionar Visíveis para Impressão</button>
-        <button id="clearSelectionBtn" class="btn btn-outline btn-sm" style="display: none;" onclick="clearSelection()">
-          Limpar Seleção
-        </button>
-        <button class="btn btn-secondary btn-sm" onclick="openPrintModal()">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="6 9 6 2 18 2 18 9" />
-            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
-            <rect x="6" y="14" width="12" height="8" />
-          </svg>
-          Opções de Impressão com Logo
-        </button>
-      </div>
+  <main class="container">
+    <!-- Abas: Lista Interativa vs Tabela Comparativa -->
+    <div class="nav-tabs" role="tablist">
+      <button id="tabListBtn" class="nav-tab active" onclick="switchTab('list')">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <line x1="8" y1="6" x2="21" y2="6" />
+          <line x1="8" y1="12" x2="21" y2="12" />
+          <line x1="8" y1="18" x2="21" y2="18" />
+          <line x1="3" y1="6" x2="3.01" y2="6" />
+          <line x1="3" y1="12" x2="3.01" y2="12" />
+          <line x1="3" y1="18" x2="3.01" y2="18" />
+        </svg>
+        Lista de Produtos
+      </button>
+      <button id="tabCompareBtn" class="nav-tab" onclick="switchTab('compare')">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <rect x="3" y="3" width="18" height="18" rx="2" />
+          <line x1="3" y1="9" x2="21" y2="9" />
+          <line x1="9" y1="21" x2="9" y2="9" />
+        </svg>
+        Tabela Comparativa
+      </button>
     </div>
 
-    <!-- Container de Cards -->
-    <section id="cardsViewContainer" class="products-grid" aria-live="polite"></section>
+    <!-- Busca Rápida -->
+    <div class="search-bar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8" />
+        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+      </svg>
+      <input
+        type="search"
+        id="searchInput"
+        class="search-input"
+        placeholder="Buscar produto ou benefício (ex: P 40, Seca, Leite, RIP)..."
+      />
+      <button id="clearSearchBtn" class="clear-search-btn" onclick="clearSearch()" aria-label="Limpar busca">&times;</button>
+    </div>
 
-    <!-- Container de Tabela Técnica -->
-    <section id="tableViewContainer" class="table-view-container" style="display: none;" aria-live="polite"></section>
+    <!-- Chips de Categoria (Deslizável no Celular) -->
+    <div class="filter-chips-scroll" aria-label="Filtrar por Categoria">
+      <button class="chip active" data-cat="all" onclick="setCategory('all')">Todos (13)</button>
+      <button class="chip" data-cat="Bovinos de corte" onclick="setCategory('Bovinos de corte')">Bovinos de Corte</button>
+      <button class="chip" data-cat="Bovinos" onclick="setCategory('Bovinos')">Multi Pasto (Bovinos)</button>
+      <button class="chip" data-cat="Bezerros de corte" onclick="setCategory('Bezerros de corte')">Bezerros (Creep)</button>
+      <button class="chip" data-cat="Bovinos de Leite" onclick="setCategory('Bovinos de Leite')">Leite</button>
+      <button class="chip" data-cat="Equídeos adultos" onclick="setCategory('Equídeos adultos')">Equídeos</button>
+      <button class="chip" data-cat="Ovinos e Caprinos" onclick="setCategory('Ovinos e Caprinos')">Ovinos e Caprinos</button>
+    </div>
+
+    <!-- Seletores Rápidos: Época e Fase -->
+    <div class="sub-filters">
+      <select id="seasonFilter" class="sub-select" onchange="onSubFilterChange()">
+        <option value="all">Época: Todas</option>
+        <option value="Ano todo">Época: Ano todo</option>
+        <option value="Águas">Época: Águas</option>
+        <option value="Seca">Época: Seca</option>
+      </select>
+
+      <select id="phaseFilter" class="sub-select" onchange="onSubFilterChange()">
+        <option value="all">Fase: Todas</option>
+        <option value="cria">Indicado p/ Cria</option>
+        <option value="recria">Indicado p/ Recria</option>
+        <option value="engorda">Indicado p/ Engorda</option>
+        <option value="reproducao">Indicado p/ Reprodução</option>
+        <option value="producao">Indicado p/ Produção</option>
+        <option value="trabalho">Indicado p/ Trabalho/Manut.</option>
+      </select>
+    </div>
+
+    <!-- Barra de Contagem + Abrir/Fechar Todos -->
+    <div class="list-status">
+      <span id="statusCount">13 produtos encontrados (toque para abrir)</span>
+      <button id="toggleAllBtn" class="btn-link" onclick="toggleExpandAll()">Abrir todos</button>
+    </div>
+
+    <!-- ABA 1: Lista Acordeão de Produtos -->
+    <section id="listSection" class="product-list" aria-live="polite"></section>
+
+    <!-- ABA 2: Tabela Comparativa Geral -->
+    <section id="compareSection" style="display: none;" aria-live="polite"></section>
   </main>
 
-  <!-- Rodapé -->
-  <footer class="main-footer">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <img src="logo-harpia.jpg" alt="Logo Harpia Nutrição Animal" class="harpia-logo-img" />
-        <div>
-          <strong style="color: #024b1f; display: block;">Harpia Nutrição Animal</strong>
-          <span style="font-size: 0.84rem; color: #4b5563;">Catálogo Técnico de Produtos • Pronto para consulta e impressão com logo</span>
-        </div>
-      </div>
-      <div>
-        <button class="btn btn-primary" onclick="openPrintModal()">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="6 9 6 2 18 2 18 9" />
-            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
-            <rect x="6" y="14" width="12" height="8" />
-          </svg>
-          Imprimir Catálogo com Logo
-        </button>
-      </div>
-    </div>
-  </footer>
-
-  <!-- =====================================================
-       MODAL: CONFIGURAÇÃO DE IMPRESSÃO COM LOGO HARPIA
-       ===================================================== -->
-  <div id="printModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="printModalTitle">
-    <div class="modal-card">
-      <div class="modal-header">
-        <h3 id="printModalTitle">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="6 9 6 2 18 2 18 9" />
-            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
-            <rect x="6" y="14" width="12" height="8" />
-          </svg>
-          Imprimir Catálogo com Logo Harpia Nutrição Animal
-        </h3>
-        <button class="modal-close" onclick="closePrintModal()" aria-label="Fechar">&times;</button>
-      </div>
-
-      <div class="modal-body">
-        <div style="display:flex; align-items:center; gap:1rem; background:#f8faf9; border:1px solid #b7e1c4; padding:0.75rem 1rem; border-radius:8px; margin-bottom:1.25rem;">
-          <img src="logo-harpia.jpg" alt="Logo Harpia" class="harpia-logo-img" style="height:46px; width:auto;" />
-          <div>
-            <strong style="color:#024b1f; font-size:0.9rem;">Cabeçalho e Rodapé com Logo Ativados</strong>
-            <p style="font-size:0.8rem; color:#4b5563;">A impressão inclui automaticamente a logo oficial da Harpia Nutrição Animal no topo e no rodapé.</p>
-          </div>
-        </div>
-
-        <div class="card-section-label">1. O que você deseja imprimir?</div>
-        <div class="print-options-grid" style="grid-template-columns: repeat(3, 1fr);">
-          <label class="print-option-card">
-            <input type="radio" name="printScope" id="scopeAllRadio" value="all" checked />
-            <div>
-              <div class="print-option-title">Catálogo Completo</div>
-              <div class="print-option-desc" id="printScopeAllCount">(13 produtos)</div>
-            </div>
-          </label>
-
-          <label class="print-option-card">
-            <input type="radio" name="printScope" id="scopeFilteredRadio" value="filtered" />
-            <div>
-              <div class="print-option-title">Filtro Atual</div>
-              <div class="print-option-desc" id="printScopeFilteredCount">(13 produtos)</div>
-            </div>
-          </label>
-
-          <label class="print-option-card">
-            <input type="radio" name="printScope" id="scopeSelectedRadio" value="selected" />
-            <div>
-              <div class="print-option-title">Selecionados</div>
-              <div class="print-option-desc" id="printScopeSelectedCount">(0 selecionados)</div>
-            </div>
-          </label>
-        </div>
-
-        <div class="card-section-label">2. Formato do Layout Impresso</div>
-        <div class="print-options-grid">
-          <label class="print-option-card">
-            <input type="radio" name="printFormat" value="table" checked />
-            <div>
-              <div class="print-option-title">Tabela Técnica Oficial (Estilo PDF)</div>
-              <div class="print-option-desc">Matriz completa com colunas de consumo, estrelas por fase e benefícios + Logo Harpia.</div>
-            </div>
-          </label>
-
-          <label class="print-option-card">
-            <input type="radio" name="printFormat" value="cards" />
-            <div>
-              <div class="print-option-title">Catálogo em Fichas / Cards</div>
-              <div class="print-option-desc">Visual em blocos organizados 2 por linha com cabeçalho institucional e logo.</div>
-            </div>
-          </label>
-        </div>
-
-        <div class="card-section-label">3. Dados Opcionais para Personalizar o Cabeçalho (Proposta / Visita Técnica)</div>
-        <div class="form-grid-2" style="margin-bottom: 0.85rem;">
-          <div class="filter-group">
-            <label for="printClientName">Produtor / Cliente (Opcional)</label>
-            <input type="text" id="printClientName" class="form-input" placeholder="Ex.: João da Silva" />
-          </div>
-          <div class="filter-group">
-            <label for="printFarmName">Fazenda / Propriedade (Opcional)</label>
-            <input type="text" id="printFarmName" class="form-input" placeholder="Ex.: Fazenda Boa Esperança" />
-          </div>
-          <div class="filter-group">
-            <label for="printConsultantName">Consultor / Representante (Opcional)</label>
-            <input type="text" id="printConsultantName" class="form-input" placeholder="Ex.: Depto. Técnico Harpia" />
-          </div>
-          <div class="filter-group">
-            <label for="printCustomNotes">Observação Rápida (Opcional)</label>
-            <input type="text" id="printCustomNotes" class="form-input" placeholder="Ex.: Recomendação para período da seca" />
-          </div>
-        </div>
-
-        <label style="display:flex; align-items:center; gap:0.5rem; font-size:0.84rem; color:#374151; cursor:pointer;">
-          <input type="checkbox" id="printIncludeSim" checked style="accent-color:#035e27;" />
-          <span>Incluir resumo da última simulação da Calculadora de Consumo (se realizada)</span>
-        </label>
-      </div>
-
-      <div class="modal-footer">
-        <button class="btn btn-outline" onclick="closePrintModal()">Cancelar</button>
-        <button class="btn btn-primary" onclick="executePrintFromModal()">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="6 9 6 2 18 2 18 9" />
-            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
-            <rect x="6" y="14" width="12" height="8" />
-          </svg>
-          Gerar Impressão / Salvar PDF com Logo
-        </button>
-      </div>
+  <!-- Barra Fixa Inferior (Mobile-First) para Impressão/PDF -->
+  <div class="bottom-bar">
+    <div class="bottom-bar-inner">
+      <button class="btn-bottom-full" onclick="printFullInformativePDF()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <polyline points="6 9 6 2 18 2 18 9" />
+          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+          <rect x="6" y="14" width="12" height="8" />
+        </svg>
+        Imprimir / Salvar PDF Informativo Completo (com Logo)
+      </button>
     </div>
   </div>
 
-  <!-- =====================================================
-       MODAL: CALCULADORA / SIMULADOR DE CONSUMO DO REBANHO
-       ===================================================== -->
-  <div id="calculatorModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="calcModalTitle">
-    <div class="modal-card">
-      <div class="modal-header">
-        <h3 id="calcModalTitle">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="4" y="2" width="16" height="20" rx="2" />
-            <line x1="8" y1="6" x2="16" y2="6" />
-            <line x1="8" y1="18" x2="16" y2="18" />
-          </svg>
-          Simulador de Consumo de Suplemento (Harpia)
-        </h3>
-        <button class="modal-close" onclick="closeCalculatorModal()" aria-label="Fechar">&times;</button>
-      </div>
-
-      <div class="modal-body">
-        <div class="filter-group" style="margin-bottom: 1rem;">
-          <label for="calcProductSelect">Produto Selecionado</label>
-          <select id="calcProductSelect" class="form-select" onchange="calculateConsumption()"></select>
-          <span id="calcRuleInfo" style="font-size: 0.78rem; color: #035e27; font-weight: 600; margin-top: 0.25rem;"></span>
-        </div>
-
-        <div class="form-grid-2">
-          <div class="filter-group">
-            <label for="calcHeads">Quantidade de Animais (Cabeças)</label>
-            <input type="number" id="calcHeads" class="form-input" value="100" min="1" oninput="calculateConsumption()" />
-          </div>
-          <div class="filter-group">
-            <label for="calcWeight">Peso Médio por Animal (kg PV)</label>
-            <input type="number" id="calcWeight" class="form-input" value="350" min="10" step="10" oninput="calculateConsumption()" />
-          </div>
-          <div class="filter-group">
-            <label for="calcDays">Período de Suplementação (Dias)</label>
-            <input type="number" id="calcDays" class="form-input" value="30" min="1" oninput="calculateConsumption()" />
-          </div>
-          <div class="filter-group">
-            <label for="calcBagWeight">Peso da Sacaria (kg)</label>
-            <select id="calcBagWeight" class="form-select" onchange="calculateConsumption()">
-              <option value="30" selected>Saco de 30 kg</option>
-              <option value="25">Saco de 25 kg</option>
-              <option value="40">Saco de 40 kg</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="calc-result-box">
-          <div style="font-size: 0.8rem; font-weight: 800; text-transform: uppercase; color: #024b1f;">
-            Estimativa de Consumo a Livre Acesso
-          </div>
-          <div class="calc-metrics">
-            <div class="calc-metric">
-              <span id="resHeadDay" class="calc-metric-val">—</span>
-              <span class="calc-metric-lbl">Consumo por Animal / Dia</span>
-            </div>
-            <div class="calc-metric">
-              <span id="resLotDay" class="calc-metric-val">—</span>
-              <span class="calc-metric-lbl">Consumo Total do Lote / Dia</span>
-            </div>
-            <div class="calc-metric">
-              <span id="resPeriodTotal" class="calc-metric-val">—</span>
-              <span class="calc-metric-lbl">Total no Período (Peso e Sacos)</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="modal-footer">
-        <button class="btn btn-outline" onclick="closeCalculatorModal()">Fechar</button>
-        <button class="btn btn-primary" onclick="printCurrentSimulation()">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="6 9 6 2 18 2 18 9" />
-            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
-            <rect x="6" y="14" width="12" height="8" />
-          </svg>
-          Imprimir Ficha + Simulação com Logo
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Área dedicada exclusivamente à Impressão (@media print) -->
+  <!-- Área dedicada para geração do PDF Informativo com Logo -->
   <div id="printArea" aria-hidden="true"></div>
 
   <script src="logo.js"></script>
